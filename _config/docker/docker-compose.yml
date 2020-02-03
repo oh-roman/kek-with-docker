@@ -46,12 +46,16 @@ services:
       MYSQL_ROOT_PASSWORD: dnc
     volumes:
     - ${DB_PATH_HOST}:/var/lib/mysql
+    networks:
+      - code-network
 
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+    networks:
+      - code-network
 
 networks:
   code-network:
