@@ -37,6 +37,7 @@ cd _config/docker/
 docker-compose exec workspace bash
 composer install
 php artisan key:generate
+npm insatll
 
 # For run frontend watcher
 npm run watch
