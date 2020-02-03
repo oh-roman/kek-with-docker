@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  web:
+    build: web/
+    expose:
+      - 9000
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ${APP_CODE_PATH_HOST}:/var/www:cached
+    tty: true
+    links:
+      - workspace
+      - mailhog
+    stdin_open: true
+    environment:
+      XDEBUG_CONFIG: "remote_connect_back=1; remote_enable=1;"
+      PHP_IDE_CONFIG: "serverName=docker-server-mxn"
+    networks:
+      - code-network
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - 1025:1025
+      - 8025:8025
+    networks:
+      - code-network
+
+  workspace:
+    build: ./workspace
+    tty: true
+    volumes:
+      - ${APP_CODE_PATH_HOST}:/var/www:cached
+      - ~/.ssh:/root/.ssh
+    networks:
+      - code-network
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dnc
+    volumes:
+    - ${DB_PATH_HOST}:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+networks:
+  code-network:
+    driver: bridge
+
