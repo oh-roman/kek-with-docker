@@ -1,0 +1,53 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: $font-size-default;
+    color: $color-main;
+    background-color: $bg-main;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+h1 {
+    font-size: $h1-font-size;
+    line-height: 38px;
+}
+
+h2 {
+    font-size: $h2-font-size;
+    line-height: 31px;
+}
+
+h3 {
+    font-size: $h3-font-size;
+    line-height: 23px;
+}
+
+
+a {
+    outline: none;
+    text-decoration: underline;
+}
+
+section {
+    position: relative;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    &:focus {
+        outline: none;
+    }
+}
