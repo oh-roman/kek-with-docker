@@ -1,5 +1,9 @@
 FROM php:7.3-apache
 
+RUN deluser www-data
+RUN adduser --disabled-password --no-create-home --uid 1000 --shell /bin/bash www-data
+RUN usermod -u 1000 www-data
+
 RUN apt-get update && apt-get install -y \
         wget git unzip \
         libfreetype6-dev \
@@ -58,3 +62,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 
 
 WORKDIR /var/www
+

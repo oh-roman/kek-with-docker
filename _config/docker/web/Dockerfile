@@ -1,5 +1,9 @@
 FROM php:7.3-apache
 
+RUN deluser www-data
+RUN adduser --disabled-password --no-create-home --uid 1000 --shell /bin/bash www-data
+RUN usermod -u 1000 www-data
+
 RUN apt-get update && apt-get install -y \
         wget git unzip \
         libfreetype6-dev \
@@ -58,5 +62,3 @@ COPY apache.conf /etc/apache2/sites-available/000-default.conf
 #RUN a2enmod ssl
 RUN a2enmod rewrite
 RUN service apache2 restart
-
-RUN usermod -u 1000 www-data
