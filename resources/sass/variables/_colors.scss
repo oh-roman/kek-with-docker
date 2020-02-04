@@ -1,0 +1,29 @@
+// Main Colors
+$color-main:            #262626;
+$primary-color:         #0086CD;
+
+$light-gray-color:      #F9F9F9;
+$middle-gray-color:     #EBEBEB;
+$dark-gray-color:       #8D8D8D;
+
+$success-color:         #66BB6A;
+$danger-color:          #FF5D29;
+
+$color-white:           #FFFFFF;
+
+// Text Colors
+$main-text-color:       $color-main;
+$primary-text-color:    $primary-color;
+$secondary-text-color:  $dark-gray-color;
+$white-text-color:      $color-white;
+
+$color-link:            $primary-color;
+
+// Background Colors
+$bg-main:               #F8F8F8;
+$bg-primary:            $primary-color;
+$bg-secondary:          $color-main;
+$bg-tertiary:           $color-white;
+$bg-disabled:           $middle-gray-color;
+$bg-success:            $success-color;
+$bg-danger:             $danger-color;
